@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Space Shooter</title>
+</head>
+
+<body>
+    <canvas id='canvas__main'></canvas>
+    <script src="/node_modules/pixi.js/dist/pixi.min.js"></script>
+    <scripts src="/js/consts.js"></scripts>
+    <script src="/js/app.js"></script>
+    <div class="ui">
+        <div class="gameplay hide" id="gameplay-js">
+            <div class="bullets">
+                bullets: <span class="bullets__actual">00</span>/<span class="bullets__start">00</span>
+            </div>
+            <div class="boss"></div>
+            <div class="timer" id="timer-js">99</div>
+        </div>
+    </div>
+    <button class="start__button" id="start__button-js">Start new game</button>
+</body>
+
+</html>
