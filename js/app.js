@@ -116,6 +116,10 @@ const app = new Application({
 document.body.appendChild(app.view);
 
 //Pixi background
+// const bgImage = document.querySelector('.backround__image');
+// const bgBase = new PIXI.BaseTexture(bgImage);
+// const bgTexture = new PIXI.Texture(bgBase);
+// const bg = new PIXI.Sprite(bgTexture);;
 const bg = PIXI.Sprite.from("./assets/sprites/essentials/background.jpg");
 
 app.stage.addChild(bg);
@@ -287,16 +291,16 @@ function moveProjectile(delta, projectile, projectile_ticker) {
             projectile_ticker.destroy();
             bossTakeDamage();
         }
-        
-        if(playerProjectileHit && hittedPlayerProjectile === projectile){
+
+        if (playerProjectileHit && hittedPlayerProjectile === projectile) {
             app.stage.removeChild(projectile);
-                projectileIndex = playerProjectiles.indexOf(projectile);
-                if (projectileIndex > -1) { // only splice array when item is found
-                    playerProjectiles.splice(projectileIndex, 1); // 2nd parameter means remove one item only
-                }
-                hittedPlayerProjectile = null;
-                bossProjectileHit = false;
-                projectile_ticker.destroy();
+            projectileIndex = playerProjectiles.indexOf(projectile);
+            if (projectileIndex > -1) { // only splice array when item is found
+                playerProjectiles.splice(projectileIndex, 1); // 2nd parameter means remove one item only
+            }
+            hittedPlayerProjectile = null;
+            bossProjectileHit = false;
+            projectile_ticker.destroy();
         }
         bossProjectiles.forEach(bossProjectile => {
             if (testForHit(projectile, bossProjectile)) {
@@ -311,7 +315,7 @@ function moveProjectile(delta, projectile, projectile_ticker) {
                 projectile_ticker.destroy();
             }
         });
-        
+
     }
 }
 
@@ -347,15 +351,15 @@ function moveBossProjectile(delta, projectile, projectile_ticker) {
         endGame(false);
     }
 
-    if(bossProjectileHit && hittedBossProjectile === projectile){
+    if (bossProjectileHit && hittedBossProjectile === projectile) {
         app.stage.removeChild(projectile);
-            projectileIndex = bossProjectiles.indexOf(projectile);
-            if (projectileIndex > -1) { // only splice array when item is found
-                bossProjectiles.splice(projectileIndex, 1); // 2nd parameter means remove one item only
-            }
-            hittedBossProjectile = null;
-            bossProjectileHit = false;
-            projectile_ticker.destroy();
+        projectileIndex = bossProjectiles.indexOf(projectile);
+        if (projectileIndex > -1) { // only splice array when item is found
+            bossProjectiles.splice(projectileIndex, 1); // 2nd parameter means remove one item only
+        }
+        hittedBossProjectile = null;
+        bossProjectileHit = false;
+        projectile_ticker.destroy();
     }
     // Handle collisions between player projectiles and boss projectiles
     playerProjectiles.forEach(playerProjectile => {
@@ -430,7 +434,7 @@ gameTicker.add(() => {
 gameTicker.start();
 
 function endGame(playerWon) {
-    if(gameEnded) return;
+    if (gameEnded) return;
     if (playerWon) {
         showMessage(playerWon);
         // winScreen.classList.remove('hide');
@@ -463,11 +467,11 @@ function showMessage(playerWon) {
         wordWrapWidth: 440,
         lineJoin: 'round',
     });
-    if(playerWon){
+    if (playerWon) {
         style.fill = '#007c00';
         richText = new PIXI.Text('YOU WIN!', style);
     }
-    else{
+    else {
         style.fill = '#ff0000';
         richText = new PIXI.Text('YOU LOSE!', style);
     }
@@ -559,9 +563,9 @@ function runBossBehavior() {
     if (moveBoss)
         bossMovement();
 
-        shootTimePassed += bossThinkTime / 1000;
+    shootTimePassed += bossThinkTime / 1000;
     let bossCanShoot = Math.abs(shootTimePassed) >= bossShootCooldown;
-    if (bossCanShoot){
+    if (bossCanShoot) {
         bossShoot();
         shootTimePassed = 0;
     }
