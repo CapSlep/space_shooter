@@ -116,14 +116,14 @@ const app = new Application({
 document.body.appendChild(app.view);
 
 //Pixi background
-const bg = PIXI.Sprite.from('../assets/sprites/essentials/background.jpg');
+const bg = PIXI.Sprite.from("../assets/sprites/essentials/background.jpg");
 
 app.stage.addChild(bg);
 
 
 
 // ==== Player ===
-const player = PIXI.Sprite.from('../assets/sprites/essentials/player.png');
+const player = PIXI.Sprite.from("../assets/sprites/essentials/player.png");
 
 // center the sprite's anchor point
 player.anchor.set(0.5);
