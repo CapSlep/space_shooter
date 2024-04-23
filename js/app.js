@@ -116,14 +116,14 @@ const app = new Application({
 document.body.appendChild(app.view);
 
 //Pixi background
-const bg = PIXI.Sprite.from("../assets/sprites/essentials/background.jpg");
+const bg = PIXI.Sprite.from("./assets/sprites/essentials/background.jpg");
 
 app.stage.addChild(bg);
 
 
 
 // ==== Player ===
-const player = PIXI.Sprite.from("../assets/sprites/essentials/player.png");
+const player = PIXI.Sprite.from("./assets/sprites/essentials/player.png");
 
 // center the sprite's anchor point
 player.anchor.set(0.5);
@@ -139,7 +139,7 @@ app.stage.addChild(player);
 
 
 // === Meteors ===
-const meteorTexture = PIXI.Texture.from('../assets/sprites/enemies/meteor.png');
+const meteorTexture = PIXI.Texture.from('./assets/sprites/enemies/meteor.png');
 let meteors = new Array();
 
 for (let i = 0; i < meteorsAmount; i++) {
@@ -494,7 +494,7 @@ function runSecondLevel() {
 let boss;
 
 function spawnBoss() {
-    const bossSprite = PIXI.Sprite.from('../assets/sprites/enemies/boss.png');
+    const bossSprite = PIXI.Sprite.from('./assets/sprites/enemies/boss.png');
     // center the sprite's anchor point
     bossSprite.anchor.set(0.5);
     bossSprite.width = 250;
